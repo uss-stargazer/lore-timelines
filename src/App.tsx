@@ -1,13 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import type { NavbarEntry } from "./components/styled-components/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { HomeSharp, Info } from "@mui/icons-material";
+import { Info } from "@mui/icons-material";
 
 import Logo from "./components/Logo";
 import PageLayout from "./components/styled-components/PageLayout";
 
 import About from "./pages/About";
-import Home from "./pages/Home";
 
 // Website setup todo list:
 //  - Select/generate favicon
@@ -18,8 +17,7 @@ import Home from "./pages/Home";
 //    - Recommended font source: https://fonts.google.com/
 
 const navbarEntries: NavbarEntry[] = [
-  { name: "Home", href: "/", icon: <HomeSharp /> },
-  { name: "About", href: "/about", icon: <Info /> },
+  { name: "About", href: "/", icon: <Info /> },
 ];
 
 // Great way to select theme settings:
@@ -27,15 +25,18 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#3f51b5",
+      main: "#b388ff",
     },
     secondary: {
-      main: "#f50057",
+      main: "#8d6e63",
+    },
+    background: {
+      default: "#000000",
     },
   },
   typography: {
-    fontFamily: "Fira Code",
-    fontSize: 14,
+    fontFamily: "monospace",
+    fontSize: 13,
   },
 });
 
@@ -43,10 +44,12 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <PageLayout logo={<Logo />} navbarEntries={navbarEntries}>
+        <PageLayout
+          logo={<Logo fontSizeRem={1.5} />}
+          navbarEntries={navbarEntries}
+        >
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<About />} />
           </Routes>
         </PageLayout>
       </ThemeProvider>

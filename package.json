@@ -1,6 +1,5 @@
 {
-  "name": "gylt-website",
-  "private": true,
+  "name": "Lore Timelines",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -16,6 +15,7 @@
     "@mui/material": "^7.3.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.3"
   },
   "devDependencies": {
