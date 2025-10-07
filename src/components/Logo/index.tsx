@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import AdbIcon from "@mui/icons-material/Adb";
+import { GiScrollUnfurled } from "react-icons/gi";
+import RainbowText from "../RainbowText";
 
-function Logo() {
+function Logo({ fontSizeRem }: { fontSizeRem: number }) {
   return (
     <Box sx={{ display: "flex" }}>
       <Typography
@@ -9,21 +10,24 @@ function Logo() {
         noWrap
         component="a"
         href="/"
+        fontSize={fontSizeRem + "rem"}
         sx={{
           mr: 2,
           display: "flex",
           fontFamily: "monospace",
           fontWeight: 700,
-          letterSpacing: ".3rem",
+          letterSpacing: fontSizeRem * 0.1 + "rem",
           color: "inherit",
           textDecoration: "none",
         }}
       >
-        <AdbIcon sx={{ display: "flex", mr: 1 }} />
-        LOGO
+        <GiScrollUnfurled color="#daaa99ff" style={{ margin: "0.24em" }} />
+        <RainbowText startHue={60} nRainbowDivisions={20} saturation={30}>
+          Timelines
+        </RainbowText>
       </Typography>
     </Box>
   );
 }
-
+//
 export default Logo;
