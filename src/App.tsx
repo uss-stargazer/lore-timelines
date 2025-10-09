@@ -7,6 +7,8 @@ import Logo from "./components/Logo";
 import PageLayout from "./components/styled-components/PageLayout";
 
 import About from "./pages/About";
+import { EarthRoutes } from "./pages/Realms/pages/Earth";
+import { StarTrekRoutes } from "./pages/Realms/pages/StarTrek";
 
 // Website setup todo list:
 //  - Select/generate favicon
@@ -47,6 +49,10 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<About />} />
+            <Route path="/realms">
+              {EarthRoutes}
+              {StarTrekRoutes}
+            </Route>
           </Routes>
         </PageLayout>
       </ThemeProvider>
