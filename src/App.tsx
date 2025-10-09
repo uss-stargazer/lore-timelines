@@ -30,9 +30,6 @@ const theme = createTheme({
     secondary: {
       main: "#8d6e63",
     },
-    background: {
-      default: "#000000",
-    },
   },
   typography: {
     fontFamily: "monospace",
