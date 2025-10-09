@@ -1,8 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { GiScrollUnfurled } from "react-icons/gi";
-import RainbowText from "../RainbowText";
+import RainbowText from "../styled/RainbowText";
 
-function Logo({ fontSizeRem }: { fontSizeRem: number }) {
+function Logo({
+  fontSizeRem,
+  randomColor,
+}: {
+  fontSizeRem: number;
+  randomColor?: boolean;
+}) {
+  const startHue = Math.random() * 256;
+
   return (
     <Box sx={{ display: "flex" }}>
       <Typography
@@ -22,7 +30,11 @@ function Logo({ fontSizeRem }: { fontSizeRem: number }) {
         }}
       >
         <GiScrollUnfurled color="#daaa99ff" style={{ margin: "0.24em" }} />
-        <RainbowText startHue={60} nRainbowDivisions={20} saturation={30}>
+        <RainbowText
+          startHue={randomColor ?? false ? startHue : 60}
+          nRainbowDivisions={20}
+          saturation={30}
+        >
           Timelines
         </RainbowText>
       </Typography>

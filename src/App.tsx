@@ -44,7 +44,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <PageLayout
-          logo={<Logo fontSizeRem={1.5} />}
+          logo={<Logo fontSizeRem={1.5} randomColor />}
           navbarEntries={navbarEntries}
         >
           <Routes>
