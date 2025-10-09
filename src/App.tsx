@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import type { NavbarEntry } from "./components/styled-components/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Info } from "@mui/icons-material";
+import { IoEarth } from "react-icons/io5";
+import { SiStartrek } from "react-icons/si";
+import type { NavbarEntry } from "./components/styled/Navbar";
 
 import Logo from "./components/Logo";
 import PageLayout from "./components/styled/PageLayout";
@@ -16,11 +18,6 @@ import { StarTrekRoutes } from "./pages/Realms/pages/StarTrek";
 //    - Cool site to generate: https://favicon.io/favicon-generator/
 //  - Customize website theme by editing `theme` below
 //    - Recommended theme generator: https://zenoo.github.io/mui-theme-creator/
-//    - Recommended font source: https://fonts.google.com/
-
-const navbarEntries: NavbarEntry[] = [
-  { name: "About", href: "/", icon: <Info /> },
-];
 
 // Great way to select theme settings:
 const theme = createTheme({
@@ -38,6 +35,22 @@ const theme = createTheme({
     fontSize: 13,
   },
 });
+
+const navbarEntries: NavbarEntry[] = [
+  { name: "About", href: "/", icon: <Info /> },
+  {
+    name: "Earth",
+    href: "/realms/earth",
+    icon: <IoEarth />,
+    placement: "realms",
+  },
+  {
+    name: "Star Trek",
+    href: "/realms/star-trek",
+    icon: <SiStartrek />,
+    placement: "realms",
+  },
+];
 
 function App() {
   return (
