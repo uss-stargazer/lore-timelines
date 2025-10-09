@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { Info } from "@mui/icons-material";
 
 import Logo from "./components/Logo";
-import PageLayout from "./components/styled-components/PageLayout";
+import PageLayout from "./components/styled/PageLayout";
 
 import About from "./pages/About";
 import { EarthRoutes } from "./pages/Realms/pages/Earth";
