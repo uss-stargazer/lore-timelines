@@ -1,32 +1,24 @@
 import { Box, Typography } from "@mui/material";
 import Logo from "../../components/Logo";
+import TextPage from "../../components/styled/text/TextPage";
+import FullPageBanner from "../../components/styled/text/FullPageBanner";
+import TypographySection from "../../components/styled/text/TypographySection";
 
 function About() {
   return (
-    <Box
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-        }}
-      >
-        <Typography variant="h4">This is the About page.</Typography>
-        <Box sx={{ margin: "0 auto", scale: 3 }}>
-          <br />
-          <Logo fontSizeRem={1.6} />
-          <br />
+    <TextPage>
+      <FullPageBanner backgroundColor="grey.200" centerChildren>
+        <Box sx={{ margin: "0 auto" }}>
+          <Logo fontSizeRem={4.8} />
         </Box>
-        <Typography variant="h4">Welcome.</Typography>
-      </Box>
-    </Box>
+        <Typography variant="h4">
+          Rich historical timelines of <br /> different realms.
+        </Typography>
+      </FullPageBanner>
+      <TypographySection>
+        <Typography variant="h3">Realms:</Typography>
+      </TypographySection>
+    </TextPage>
   );
 }
 
