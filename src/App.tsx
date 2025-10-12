@@ -9,15 +9,8 @@ import Logo from "./components/Logo";
 import PageLayout from "./components/styled/PageLayout";
 
 import About from "./pages/About";
-import { EarthRoutes } from "./pages/Realms/pages/Earth";
-import { StarTrekRoutes } from "./pages/Realms/pages/StarTrek";
-
-// Website setup todo list:
-//  - Select/generate favicon
-//    - Recommended formats/config is demonstrated in `/public/favicon/` and `/index.html`
-//    - Cool site to generate: https://favicon.io/favicon-generator/
-//  - Customize website theme by editing `theme` below
-//    - Recommended theme generator: https://zenoo.github.io/mui-theme-creator/
+import { EarthRoutes } from "./pages/Realms/Earth";
+import { StarTrekRoutes } from "./pages/Realms/StarTrek";
 
 // Great way to select theme settings:
 const theme = createTheme({
