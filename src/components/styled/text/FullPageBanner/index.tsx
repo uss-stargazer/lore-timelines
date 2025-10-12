@@ -6,11 +6,11 @@ function FullPageBanner({
   children,
   backgroundColor,
   backgroundImage,
-  centerChildren,
+  childrenAlignment,
 }: PropsWithChildren<{
   backgroundColor?: string;
   backgroundImage?: { url: string; static?: boolean; fade?: number };
-  centerChildren?: boolean;
+  childrenAlignment?: "left" | "right" | "center";
 }>) {
   const appBarHeight = useAppBarHeight();
 
@@ -28,14 +28,17 @@ function FullPageBanner({
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
               backgroundAttachment: backgroundImage.static ? "fixed" : "scroll",
-              filter: "brightness(70%)",
             }
           : null),
         display: "flex",
         flexDirection: "column",
-        ...(centerChildren
-          ? { justifyContent: "center", alignItems: "center" }
-          : null),
+        justifyContent: "center",
+        alignItems:
+          childrenAlignment === "right"
+            ? "flex-end"
+            : childrenAlignment === "left"
+            ? "flex-start"
+            : "center",
       }}
     >
       {children}

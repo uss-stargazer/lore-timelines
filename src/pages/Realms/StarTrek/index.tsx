@@ -10,7 +10,7 @@ function StarTrek() {
     <TextPage>
       <FullPageBanner
         backgroundImage={{ url: bannerImage, fade: 0.55 }}
-        centerChildren
+        childrenAlignment="center"
       >
         <Typography variant="h6" fontSize="4.8rem">
           <b>Star Trek</b>

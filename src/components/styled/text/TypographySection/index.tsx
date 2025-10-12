@@ -5,8 +5,12 @@ const defaultMaxWidth = 1300;
 
 function TypographySection({
   children,
+  childrenAlignment,
   maxWidthPx,
-}: PropsWithChildren<{ maxWidthPx?: number }>) {
+}: PropsWithChildren<{
+  childrenAlignment?: "left" | "right" | "center";
+  maxWidthPx?: number;
+}>) {
   return (
     <Box
       sx={{
@@ -18,8 +22,13 @@ function TypographySection({
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "1.5rem",
+          alignItems:
+            childrenAlignment === "right"
+              ? "flex-end"
+              : childrenAlignment === "center"
+              ? "center"
+              : "flex-start",
+          padding: "1.8rem",
           gap: "1.5rem",
         }}
       >

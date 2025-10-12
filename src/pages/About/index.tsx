@@ -7,7 +7,7 @@ import TypographySection from "../../components/styled/text/TypographySection";
 function About() {
   return (
     <TextPage>
-      <FullPageBanner backgroundColor="grey.200" centerChildren>
+      <FullPageBanner backgroundColor="grey.200" childrenAlignment="center">
         <Box sx={{ margin: "0 auto" }}>
           <Logo fontSizeRem={4.8} />
         </Box>
@@ -15,7 +15,7 @@ function About() {
           Rich historical timelines of <br /> different realms.
         </Typography>
       </FullPageBanner>
-      <TypographySection>
+      <TypographySection childrenAlignment="center">
         <Typography variant="h3">Realms:</Typography>
       </TypographySection>
     </TextPage>
