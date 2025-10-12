@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { Info } from "@mui/icons-material";
 import type { NavbarEntry } from "./components/styled/Navbar";
 
@@ -14,11 +14,13 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#b388ff",
+      main: "#315d83ff",
     },
     secondary: {
-      main: "#8d6e63",
+      main: "#9944caff",
     },
+    grey: { "200": "#141e26ff" },
+    background: { default: "#151515ff" },
   },
   typography: {
     fontFamily: "monospace",
@@ -42,6 +44,7 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <PageLayout
           logo={<Logo fontSizeRem={1.5} randomColor />}
           navbarEntries={navbarEntries}
