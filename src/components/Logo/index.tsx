@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { GiScrollUnfurled } from "react-icons/gi";
 import RainbowText from "../styled/RainbowText";
+import { Link } from "react-router-dom";
 
 function Logo({
   fontSizeRem,
@@ -14,8 +15,8 @@ function Logo({
       <Typography
         variant="h6"
         noWrap
-        component="a"
-        href="/"
+        component={Link}
+        to="/"
         fontSize={fontSizeRem + "rem"}
         sx={{
           mr: 2,
