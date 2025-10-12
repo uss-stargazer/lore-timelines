@@ -9,7 +9,7 @@ function FullPageBanner({
   centerChildren,
 }: PropsWithChildren<{
   backgroundColor?: string;
-  backgroundImage?: { url: string; static?: boolean; filter?: string };
+  backgroundImage?: { url: string; static?: boolean; fade?: number };
   centerChildren?: boolean;
 }>) {
   const appBarHeight = useAppBarHeight();
@@ -22,7 +22,8 @@ function FullPageBanner({
         bgcolor: backgroundColor,
         ...(backgroundImage
           ? {
-              backgroundImage: `url('${backgroundImage.url}')`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,${backgroundImage.fade}), rgba(0,0,0,${backgroundImage.fade})),
+                                url('${backgroundImage.url}')`,
               backgroundSize: "cover",
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
