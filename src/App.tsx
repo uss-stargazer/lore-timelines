@@ -1,16 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Info } from "@mui/icons-material";
-import { IoEarth } from "react-icons/io5";
-import { SiStartrek } from "react-icons/si";
 import type { NavbarEntry } from "./components/styled/Navbar";
 
 import Logo from "./components/Logo";
 import PageLayout from "./components/styled/PageLayout";
 
 import About from "./pages/About";
-import { EarthRoutes } from "./pages/Realms/Earth";
-import { StarTrekRoutes } from "./pages/Realms/StarTrek";
+import realmRecords, { type RealmRecord } from "./pages/Realms/realmRecords";
 
 // Great way to select theme settings:
 const theme = createTheme({
@@ -31,18 +28,14 @@ const theme = createTheme({
 
 const navbarEntries: NavbarEntry[] = [
   { name: "About", href: "/", icon: <Info /> },
-  {
-    name: "Earth",
-    href: "/realms/earth",
-    icon: <IoEarth />,
-    placement: "realms",
-  },
-  {
-    name: "Star Trek",
-    href: "/realms/star-trek",
-    icon: <SiStartrek />,
-    placement: "realms",
-  },
+  ...realmRecords.map((realm: RealmRecord): NavbarEntry => {
+    return {
+      name: realm.name,
+      href: realm.href,
+      icon: realm.icon,
+      placement: "realms",
+    };
+  }),
 ];
 
 function App() {
@@ -56,8 +49,7 @@ function App() {
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/realms">
-              {EarthRoutes}
-              {StarTrekRoutes}
+              {realmRecords.map((realm: RealmRecord) => realm.routes)}
             </Route>
           </Routes>
         </PageLayout>
