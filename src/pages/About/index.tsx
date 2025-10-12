@@ -3,6 +3,8 @@ import Logo from "../../components/Logo";
 import TextPage from "../../components/styled/text/TextPage";
 import FullPageBanner from "../../components/styled/text/FullPageBanner";
 import TypographySection from "../../components/styled/text/TypographySection";
+import RealmScroller from "./components/RealmScroller";
+import realmRecords from "../Realms/realmRecords";
 
 function About() {
   return (
@@ -17,6 +19,8 @@ function About() {
       </FullPageBanner>
       <TypographySection childrenAlignment="center">
         <Typography variant="h3">Realms:</Typography>
+        <hr />
+        <RealmScroller realms={realmRecords} />
       </TypographySection>
     </TextPage>
   );
