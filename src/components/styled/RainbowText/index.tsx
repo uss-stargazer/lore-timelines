@@ -5,12 +5,16 @@ function RainbowText({
   nRainbowDivisions,
   children,
 }: {
-  startHue?: number;
+  startHue?: number | "random";
   saturation?: number;
   lightness?: number;
   nRainbowDivisions?: number;
   children: string;
 }) {
+  if (typeof startHue === "string") {
+    startHue = Math.random() * 255;
+  }
+
   return (
     <span>
       {children.split("").map((c: string, idx: number) => {

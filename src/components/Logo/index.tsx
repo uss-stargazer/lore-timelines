@@ -9,8 +9,6 @@ function Logo({
   fontSizeRem: number;
   randomColor?: boolean;
 }) {
-  const startHue = Math.random() * 256;
-
   return (
     <Box sx={{ display: "flex" }}>
       <Typography
@@ -31,7 +29,7 @@ function Logo({
       >
         <GiScrollUnfurled color="#daaa99ff" style={{ margin: "0.24em" }} />
         <RainbowText
-          startHue={randomColor ?? false ? startHue : 60}
+          startHue={randomColor ? "random" : 60}
           nRainbowDivisions={20}
           saturation={30}
         >
