@@ -9,7 +9,6 @@ import PageLayout from "./components/styled/PageLayout";
 import About from "./pages/About";
 import realmRecords, { type RealmRecord } from "./pages/Realms/realmRecords";
 
-// Great way to select theme settings:
 const theme = createTheme({
   palette: {
     mode: "dark",
