@@ -1,23 +1,23 @@
-import { Box } from "@mui/material";
 import { Route } from "react-router-dom";
+import TextPage from "../../../components/styled/text/TextPage";
+import { Typography } from "@mui/material";
+import FullPageBanner from "../../../components/styled/text/FullPageBanner";
 
 import bannerImage from "./assets/images/banner.jpg";
 
 function Earth() {
   return (
-    <Box>
-      {/* <RealmBanner
-        realm="Earth"
-        description={`Overview of Earth's lore (also known as world history). This timeline 
-                      aggregates interesting topics that I've researched through Afro-Eurasia 
-                      and the Americas.`}
-        image={{
-          path: bannerImage,
-          description: `A world map part of what's considered the first true atlas (Theatrum 
-                        Orbis Terrarum by Abraham Orteliush).`,
-        }}
-      /> */}
-    </Box>
+    <TextPage>
+      <FullPageBanner
+        backgroundImage={{ url: bannerImage, fade: 0.55 }}
+        centerChildren
+      >
+        <Typography variant="h6" fontSize="4.8rem">
+          <b>Earth</b>
+        </Typography>
+        <Typography variant="h4">also known as World History</Typography>
+      </FullPageBanner>
+    </TextPage>
   );
 }
 

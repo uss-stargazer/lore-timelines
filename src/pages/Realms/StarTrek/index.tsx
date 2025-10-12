@@ -1,20 +1,23 @@
-import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Route } from "react-router-dom";
+import TextPage from "../../../components/styled/text/TextPage";
+import FullPageBanner from "../../../components/styled/text/FullPageBanner";
 
 import bannerImage from "./assets/images/banner.jpg";
 
 function StarTrek() {
   return (
-    <Box>
-      {/* <RealmBanner
-        realm="Star Trek"
-        description={`Star Trek realm description.`}
-        image={{
-          path: bannerImage,
-          description: "USS Enterprise (NCC-1701-D) from The Next Generation",
-        }}
-      /> */}
-    </Box>
+    <TextPage>
+      <FullPageBanner
+        backgroundImage={{ url: bannerImage, fade: 0.55 }}
+        centerChildren
+      >
+        <Typography variant="h6" fontSize="4.8rem">
+          <b>Star Trek</b>
+        </Typography>
+        <Typography variant="h4">Space: The final frontier...</Typography>
+      </FullPageBanner>
+    </TextPage>
   );
 }
 
