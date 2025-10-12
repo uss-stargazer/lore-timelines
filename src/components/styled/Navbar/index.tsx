@@ -1,31 +1,31 @@
 import { useState, type ReactElement, type ReactNode } from "react";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuIcon from "@mui/icons-material/Menu";
-
+import { MdMenu } from "react-icons/md";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export interface NavbarEntry {
   name: string;
   href: string;
   icon?: ReactNode;
-  description?: string;
-  placement?: "bar" | "menu" | string | ReactElement; // Defining custom will add to menu under button of the name/icon
+  placement?: "bar" | "menu" | string | ReactElement; // TODO: make discrimative union
 }
 
 function NavbarDropdown({
   label,
+  button,
   entries,
 }: {
   label: string | ReactElement;
+  button?: boolean;
   entries: NavbarEntry[];
 }) {
+  button = button ?? true;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isOpen = Boolean(anchorEl);
 
@@ -36,10 +36,15 @@ function NavbarDropdown({
 
   return (
     <Box sx={{ alignSelf: "center" }}>
-      <Button onClick={toggleDropdown} variant="contained" sx={{ gap: "10px" }}>
+      <Box
+        onClick={toggleDropdown}
+        component={button ? Button : "div"}
+        variant="contained"
+        sx={button ? { gap: "10px" } : {}}
+      >
         {label}
-        {isOpen ? <ExpandMore /> : <ExpandLess />}
-      </Button>
+        {button && (isOpen ? <MdExpandMore /> : <MdExpandLess />)}
+      </Box>
       <Menu
         sx={{ mt: "45px" }}
         anchorEl={anchorEl}
@@ -57,11 +62,7 @@ function NavbarDropdown({
         }}
       >
         {entries.map((entry: NavbarEntry) => (
-          <MenuItem
-            component={Link}
-            to={entry.href}
-            sx={{ gap: "1em", fontSize: "1.2em" }}
-          >
+          <MenuItem component={Link} to={entry.href} sx={{ gap: "1em" }}>
             {entry.icon}
             <Typography fontSize="inherit" sx={{ textAlign: "center" }}>
               {entry.name}
@@ -164,9 +165,10 @@ function Navbar({
               <NavbarDropdown
                 label={
                   <IconButton size="large" color="inherit" aria-label="menu">
-                    <MenuIcon />
+                    <MdMenu />
                   </IconButton>
                 }
+                button={false}
                 entries={navbarMenuEntries}
               />
             )}
