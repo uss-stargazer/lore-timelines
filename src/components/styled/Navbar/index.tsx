@@ -99,8 +99,8 @@ function Navbar({
   });
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar>
+      <Container>
         <Toolbar disableGutters>
           {logo}
 
